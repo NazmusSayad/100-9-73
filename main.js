@@ -3,9 +3,9 @@ const arrayOperator = document.querySelectorAll(".operator");
 const arrayAns = document.querySelector(".ans");
 const arrayClear = document.querySelector(".clear");
 
-var arrayFirstNumbers = ["0"];
+var arrayFirstNumbers = [""];
 var Operators = "";
-var arrayLastNumbers = ["0"];
+var arrayLastNumbers = [""];
 
 addToNumber = (arrayName, key) => {
   switch (key) {
@@ -54,24 +54,30 @@ addToNumber = (arrayName, key) => {
     case "+":
       Operators = "+";
       removeEvent();
+      runSecondEvent();
       break;
 
     case "-":
       Operators = "-";
       removeEvent();
+      runSecondEvent();
       break;
 
     case "*":
       Operators = "*";
       removeEvent();
+      runSecondEvent();
       break;
 
     case "/":
       Operators = "/";
       removeEvent();
+      runSecondEvent();
+      break;
+    case "=":
+      finishTheSum();
       break;
   }
-  console.log(arrayName);
 };
 responseToClick = (e) => {
   let text = e.target.innerText;
@@ -89,15 +95,15 @@ responseToKeyPress2 = (e) => {
   let key = e.key;
   addToNumber(arrayLastNumbers, key);
 };
+runFirstEvent = (params) => {
+  document.getElementById("dot").disabled = false;
 
-removeEvent = () => {
   arrayNumber.forEach((element) => {
-    element.removeEventListener("click", responseToClick);
+    element.addEventListener("click", responseToClick);
   });
-
-  document.removeEventListener("keypress", responseToKeyPress);
-  // And Start a new event
-
+  document.addEventListener("keypress", responseToKeyPress);
+};
+runSecondEvent = () => {
   document.getElementById("dot").disabled = false;
 
   arrayNumber.forEach((element) => {
@@ -106,23 +112,39 @@ removeEvent = () => {
 
   document.addEventListener("keypress", responseToKeyPress2);
 };
-// First Event
-arrayNumber.forEach((element) => {
-  element.addEventListener("click", responseToClick);
-});
 
-document.addEventListener("keypress", responseToKeyPress);
-// FirstEventEND
+removeEvent = () => {
+  arrayNumber.forEach((element) => {
+    element.removeEventListener("click", responseToClick);
+  });
+
+  document.removeEventListener("keypress", responseToKeyPress);
+};
+removeEvent2 = () => {
+  document.getElementById("dot").disabled = false;
+
+  arrayNumber.forEach((element) => {
+    element.removeEventListener("click", responseToClick2);
+  });
+
+  document.removeEventListener("keypress", responseToKeyPress2);
+};
+
+// Hey Bruda Find me ???
+runFirstEvent();
 finishTheSum = () => {
   let firstPart = arrayFirstNumbers.join("", arrayFirstNumbers);
   let midPart = Operators;
   let lastPart = arrayLastNumbers.join("", arrayLastNumbers);
   let sumAllPart = firstPart + midPart + lastPart;
 
-  var answer = eval(sumAllPart);
-  alert(answer);
+  console.log(sumAllPart);
+  var answer = eval(sumAllPart).toString();
+  console.warn(answer);
 
-  arrayFirstNumbers = ["0"];
+  arrayFirstNumbers = [""];
   Operators = "";
-  arrayLastNumbers = ["0"];
+  arrayLastNumbers = [""];
+  removeEvent2();
+  runFirstEvent();
 };
