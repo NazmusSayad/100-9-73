@@ -10,38 +10,47 @@ addToNumber = (arrayName, key) => {
   switch (key) {
     case "1":
       arrayName.push("1");
+      document.querySelector("#ansHTML").innerHTML = '';
       break;
 
     case "2":
       arrayName.push("2");
+      document.querySelector("#ansHTML").innerHTML = '';
       break;
 
     case "3":
       arrayName.push("3");
+      document.querySelector("#ansHTML").innerHTML = '';
       break;
 
     case "4":
       arrayName.push("4");
+      document.querySelector("#ansHTML").innerHTML = '';
       break;
 
     case "5":
       arrayName.push("5");
+      document.querySelector("#ansHTML").innerHTML = '';
       break;
 
     case "6":
       arrayName.push("6");
+      document.querySelector("#ansHTML").innerHTML = '';
       break;
 
     case "7":
       arrayName.push("7");
+      document.querySelector("#ansHTML").innerHTML = '';
       break;
 
     case "8":
       arrayName.push("8");
+      document.querySelector("#ansHTML").innerHTML = '';
       break;
 
     case "9":
       arrayName.push("9");
+      document.querySelector("#ansHTML").innerHTML = '';
       break;
 
     case "0":
