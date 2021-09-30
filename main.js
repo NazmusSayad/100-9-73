@@ -1,11 +1,10 @@
 const arrayNumber = document.querySelectorAll(".numbers");
 const arrayOperator = document.querySelectorAll(".operator");
-const arrayAns = document.querySelector(".ans");
-const arrayClear = document.querySelector(".clear");
 
 var arrayFirstNumbers = [""];
 var Operators = "";
 var arrayLastNumbers = [""];
+var answer;
 
 addToNumber = (arrayName, key) => {
   switch (key) {
@@ -78,6 +77,12 @@ addToNumber = (arrayName, key) => {
       finishTheSum();
       break;
   }
+
+  document.querySelector("#firstNumberHTML").innerHTML = arrayFirstNumbers.join("", arrayFirstNumbers);
+  document.querySelector("#secondNumberHTML").innerHTML = arrayLastNumbers.join("", arrayLastNumbers);
+  document.querySelector("#OperatorHTML").innerHTML = Operators;
+
+  // END
 };
 responseToClick = (e) => {
   let text = e.target.innerText;
@@ -95,7 +100,7 @@ responseToKeyPress2 = (e) => {
   let key = e.key;
   addToNumber(arrayLastNumbers, key);
 };
-runFirstEvent = (params) => {
+runFirstEvent = () => {
   document.getElementById("dot").disabled = false;
 
   arrayNumber.forEach((element) => {
@@ -139,8 +144,10 @@ finishTheSum = () => {
   let sumAllPart = firstPart + midPart + lastPart;
 
   console.log(sumAllPart);
-  var answer = eval(sumAllPart).toString();
+  answer = eval(sumAllPart).toString();
   console.warn(answer);
+
+  document.querySelector("#ansHTML").innerHTML = answer;
 
   arrayFirstNumbers = [""];
   Operators = "";
