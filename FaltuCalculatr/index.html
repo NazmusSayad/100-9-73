@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      html {
+        text-align: center;
+      }
+      .mainbody {
+        height: fit-content;
+        width: 500px;
+        margin: auto;
+      }
+      .display {
+        height: 150px;
+        width: 100%;
+        background-color: #999;
+      }
+      .characters {
+        width: 100%;
+        display: flex;
+      }
+      #inputbox1 {
+        flex: 1;
+        margin: auto;
+      }
+      #inputbox2 {
+        flex: 1;
+        margin: auto;
+      }
+      #operatorBtn {
+        display: flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <!--  -->
+
+    <div class="mainbody">
+      <div class="display">
+        <h1 id="amih1"></h1>
+      </div>
+      <div class="characters">
+        <input id="inputbox1" type="number" />
+
+        <div id="operatorBtn">
+          <button class="plus">+</button>
+          <button class="minus">-</button>
+          <button class="multiply">*</button>
+          <button class="divide">/</button>
+          <!-- <button class="plus">+</button>
+          <button class="minus">-</button>
+          <button class="multiply">×</button>
+          <button class="divide">÷</button> -->
+        </div>
+
+        <input id="inputbox2" type="number" />
+      </div>
+    </div>
+
+    <!--  -->
+    <script src="main.js"></script>
+  </body>
+</html>
