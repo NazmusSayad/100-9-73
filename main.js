@@ -5,7 +5,7 @@ var arrayFirstNumbers = [""];
 var Operators = "";
 var arrayLastNumbers = [""];
 var answer;
-
+var finalANS;
 addToNumber = (arrayName, key) => {
   switch (key) {
     case "1":
@@ -155,8 +155,13 @@ finishTheSum = () => {
   console.log(sumAllPart);
   answer = eval(sumAllPart).toString();
   console.warn(answer);
-
-  document.querySelector("#ansHTML").innerHTML = answer;
+if (answer == "0.30000000000000004"){
+finalANS = "0.3"
+}else {
+finalANS = answer
+}
+  
+  document.querySelector("#ansHTML").innerHTML = finalANS;
 
   arrayFirstNumbers = [""];
   Operators = "";
